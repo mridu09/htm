@@ -1,0 +1,1045 @@
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/welcome.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return Welcome();
+  }
+}
+
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/adminlogin.dart';
+import 'package:votingapp/screens/registration.dart';
+
+class Welcome extends StatefulWidget {
+  const Welcome({Key? key}) : super(key: key);
+
+  @override
+  State<Welcome> createState() => _WelcomeState();
+}
+
+class _WelcomeState extends State<Welcome> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Builder(builder : (context) =>Scaffold(
+        body: Container(
+          height: 850,
+          width: 500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (24).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new SizedBox(
+                height: 500,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+
+                child: FloatingActionButton.extended(
+                  heroTag: "signin",
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Register()),
+                      );
+                    },
+                    label:Text('Sign in',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+              new SizedBox(
+                height: 20,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    heroTag: "Admin",
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Alogin()),
+                      );
+                    },
+                    label:Text('Admin Login',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+
+                ),
+              ),
+            ],
+          ),
+        ),
+
+
+
+      ),
+      ),
+    );
+  }
+}
+
+
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/login.dart';
+
+class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
+
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Name',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Email ID',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Password',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Confirm Password',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              new SizedBox(
+                width: 220,
+                height: 40,
+                child: FloatingActionButton.extended(
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                    );
+                  },
+                  label: Text('Register'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/Manual.dart';
+
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Login',
+                style: TextStyle(fontSize: 30),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Email ID',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Password',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              new SizedBox(
+                height: 50,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Manual()),
+                      );
+                    },
+                    label:Text('Login',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/home.dart';
+
+class Manual extends StatefulWidget {
+  const Manual({Key? key}) : super(key: key);
+
+  @override
+  State<Manual> createState() => _ManualState();
+}
+
+class _ManualState extends State<Manual> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          height: 850,
+          width: 500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                  'User Manual\n',
+                   style: TextStyle(fontSize: 30),
+              ),
+              Text(
+                '1)Voter Registration',
+                    style: TextStyle(fontSize: 25),
+              ),
+              Text(
+                  'a)When you click on signin button you will direct to a page where you have to enter your email id, name and password.',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                'b)When you click on sign in you will be successfully registered on our app.',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                'c)Then you need to login to the app. After login you need to fill the form of voter registration so that you can cast your vote.',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                'd)After registering you are asked for OTP. After entering OTP you will become a voter.',
+                style: TextStyle(fontSize: 18),
+              ),
+              Text(
+                '2)Casting Vote',
+                style: TextStyle(fontSize: 25),
+              ),
+              Text(
+                'a)After entering OTP you need to click on Continue button. You will be redirected to home page.'
+              ),
+              Text(
+                'a)For casting vote you need to click on Admin Login button to caste the vote. You will be redirected to Voting page',
+                    style: TextStyle(fontSize: 18)
+              ),
+              Text(
+                'After casting vote you will be given cryptocurrency as perks',
+                style: TextStyle(fontSize: 18),
+              ),
+              new SizedBox(
+                height: 15,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    },
+                    label:Text('Home Page',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/register.dart';
+import 'package:votingapp/screens/result.dart';
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          height: 850,
+          width: 500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new SizedBox(
+                width: 250,
+                height: 40,
+                child: FloatingActionButton.extended(
+                  heroTag: 'register',
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Unique()),
+                      );
+                    },
+                    label:Text('Voter Registration',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+              new SizedBox(
+                height: 50,
+              ),
+              new SizedBox(
+                width: 250,
+                height: 40,
+                child: FloatingActionButton.extended(
+                  heroTag: 'result',
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Result()),
+                      );
+                    },
+                    label:Text('View Result',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+// voter registration
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/login.dart';
+
+class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
+
+  @override
+  State<Register> createState() => _RegisterState();
+}
+
+class _RegisterState extends State<Register> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Name',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Email ID',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Password',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Confirm Password',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              new SizedBox(
+                width: 220,
+                height: 40,
+                child: FloatingActionButton.extended(
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                    );
+                  },
+                  label: Text('Register'),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/successful.dart';
+
+class Otp extends StatefulWidget {
+  const Otp({Key? key}) : super(key: key);
+
+  @override
+  State<Otp> createState() => _OtpState();
+}
+
+class _OtpState extends State<Otp> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'A verification code has been sent to you via mail',
+                style: TextStyle(fontSize: 30),
+              ),
+              Text(
+                'Kindly check your email ID',
+                style: TextStyle(fontSize: 25),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'OTP',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+
+              new SizedBox(
+                height: 50,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Success()),
+                      );
+                    },
+                    label:Text('Continue',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/welcome.dart';
+
+class Success extends StatefulWidget {
+  const Success({Key? key}) : super(key: key);
+
+  @override
+  State<Success> createState() => _SuccessState();
+}
+
+class _SuccessState extends State<Success> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'You are successfully registered as a Voter',
+                style: TextStyle(fontSize: 40),
+              ),
+              Text(
+                'Now you can cast your vote',
+                style: TextStyle(fontSize: 25),
+              ),
+
+              new SizedBox(
+                height: 50,
+              ),
+              new SizedBox(
+                width: 200,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Welcome()),
+                      );
+                    },
+                    label: Text('Voting Area', style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/adminlogin.dart';
+import 'package:votingapp/screens/registration.dart';
+
+class Welcome extends StatefulWidget {
+  const Welcome({Key? key}) : super(key: key);
+
+  @override
+  State<Welcome> createState() => _WelcomeState();
+}
+
+class _WelcomeState extends State<Welcome> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Builder(builder : (context) =>Scaffold(
+        body: Container(
+          height: 850,
+          width: 500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (24).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new SizedBox(
+                height: 500,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+
+                child: FloatingActionButton.extended(
+                  heroTag: "signin",
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Register()),
+                      );
+                    },
+                    label:Text('Sign in',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+              new SizedBox(
+                height: 20,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    heroTag: "Admin",
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Alogin()),
+                      );
+                    },
+                    label:Text('Admin Login',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+
+                ),
+              ),
+            ],
+          ),
+        ),
+
+
+
+      ),
+      ),
+    );
+  }
+}
+
+
+// Admin login 
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/Vote.dart';
+
+class Alogin extends StatefulWidget {
+  const Alogin({Key? key}) : super(key: key);
+
+  @override
+  State<Alogin> createState() => _AloginState();
+}
+
+class _AloginState extends State<Alogin> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Login',
+                style: TextStyle(fontSize: 30),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Email ID',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Password',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              new SizedBox(
+                height: 50,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Vote()),
+                      );
+                    },
+                    label:Text('Login',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/crypto.dart';
+
+
+class Vote extends StatefulWidget {
+  const Vote({Key? key}) : super(key: key);
+
+  @override
+  State<Vote> createState() => _VoteState();
+}
+
+class _VoteState extends State<Vote> {
+
+  @override
+  Widget build(BuildContext context) {
+      return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          height: 850,
+          width: 500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Name',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Age',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Party',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                child: TextField (
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      labelText: 'Qualification',
+                      filled: true,
+                      fillColor: Colors.purple[200]
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              new SizedBox(
+                width: 220,
+                height: 40,
+                child: FloatingActionButton.extended(
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Crypto()),
+                    );
+                  },
+                  label: Text('Vote'),
+                ),
+              ),
+            ],
+          ),
+
+        ),
+
+
+
+      ),
+    );
+
+
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/home.dart';
+
+class Crypto extends StatefulWidget {
+  const Crypto({Key? key}) : super(key: key);
+
+  @override
+  State<Crypto> createState() => _CryptoState();
+}
+
+class _CryptoState extends State<Crypto> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          height:850,
+          width:500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Your Wallet',
+                style: TextStyle(fontSize: 30),
+              ),
+              new SizedBox(
+                height: 300,
+              ),
+              new SizedBox(
+                width: 150,
+                height: 40,
+                child: FloatingActionButton.extended(
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Home()),
+                      );
+                    },
+                    label:Text('Home Page',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+import 'package:flutter/material.dart';
+import 'package:votingapp/screens/register.dart';
+import 'package:votingapp/screens/result.dart';
+
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          height: 850,
+          width: 500,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('assets/Android Large - 1 (23).png')
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new SizedBox(
+                width: 250,
+                height: 40,
+                child: FloatingActionButton.extended(
+                  heroTag: 'register',
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Unique()),
+                      );
+                    },
+                    label:Text('Voter Registration',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+              new SizedBox(
+                height: 50,
+              ),
+              new SizedBox(
+                width: 250,
+                height: 40,
+                child: FloatingActionButton.extended(
+                  heroTag: 'result',
+                    onPressed: (){
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Result()),
+                      );
+                    },
+                    label:Text('View Result',style: TextStyle(fontSize: 20)),
+                    backgroundColor: Colors.purple[200]
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
